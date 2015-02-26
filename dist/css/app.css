@@ -8036,6 +8036,7 @@ button.close {
 }
 body {
   font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
 h1,
 h2,
@@ -8087,7 +8088,7 @@ nav #navigationItems {
   color: #fff;
 }
 nav #navigationItems .background {
-  background: pink;
+  background: #EA2159;
   opacity: 0;
   width: 0%;
   height: 100%;
@@ -8111,6 +8112,7 @@ nav #navigationItems ul {
 }
 nav #navigationItems ul li {
   margin-left: 10px;
+  font-size: 48px;
 }
 nav #navigationItems ul li a {
   text-decoration: none;
