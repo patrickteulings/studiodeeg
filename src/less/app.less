@@ -4,3 +4,24 @@
 @import "modules/buttons.less";
 @import "modules/typography.less";
 @import "modules/navigation.less";
+
+// Bootstrap override
+
+.container-fluid{
+    padding: 0 80px;
+}
+
+
+
+//
+//  RESPONSIVENESS
+//
+
+@media only screen and (max-width : @screen-sm-max) {
+    
+    // Bootstrap override
+
+    .container-fluid{
+        padding : 0 40px;    
+    }
+}

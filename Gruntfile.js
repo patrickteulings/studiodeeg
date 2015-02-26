@@ -75,6 +75,7 @@ module.exports = function (grunt) {
 					'src/js/modules/factory.js',
 					'src/js/modules/router.js',
 					'src/js/modules/mainnavigation.js',
+					'src/js/modules/home.js',
 					'src/js/app.js'					
 
 				],

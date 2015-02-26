@@ -32,6 +32,10 @@ $(document).ready(function(){
 
     })();
 
-
-
 });
+
+console.log('*****************************************************************************************************');
+console.log('');
+console.log('Hi, checking out the code huh? Why not do it on github? https://github.com/patrickteulings/studiodeeg');
+console.log('');
+console.log('*****************************************************************************************************');

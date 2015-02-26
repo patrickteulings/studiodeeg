@@ -8018,15 +8018,35 @@ button.close {
 .fa-meanpath:before {
   content: "\f20c";
 }
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+}
 .transition {
-  -webkit-transition: all 0.5s ease 0s;
   -moz-transition: all 0.5s ease 0s;
   -ms-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 100;
 }
 h1 {
   font-size: 48px;
-  text-align: center;
+  font-weight: 100;
 }
 h2 {
   font-size: 32px;
@@ -8051,12 +8071,38 @@ p {
     font-size: 18px;
   }
 }
+nav {
+  padding: 80px;
+}
 nav #brand {
   display: inline;
 }
 nav #navigationItems {
-  float: right !important;
-  float: right;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  color: #fff;
+}
+nav #navigationItems .background {
+  background: pink;
+  opacity: 0;
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+}
+nav #navigationItems .cell {
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  -webkit-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
 }
 nav #navigationItems ul {
   margin: 0;
@@ -8064,5 +8110,138 @@ nav #navigationItems ul {
   list-style-type: none;
 }
 nav #navigationItems ul li {
+  margin-left: 10px;
+}
+nav #navigationItems ul li a {
+  text-decoration: none;
+}
+nav #navigationItems.open {
+  display: block;
+}
+nav #navigationItems.open .background {
+  opacity: 1;
+  width: 100%;
+}
+nav #menuToggle {
+  position: relative;
+  z-index: 101;
+  float: right !important;
+  float: right;
+  width: 40px;
   float: left;
+  height: 26px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+nav #menuToggle .inner {
+  position: relative;
+  width: 30px;
+  height: 26px;
+}
+nav #menuToggle span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #333;
+  position: absolute;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+nav #menuToggle span.lt {
+  width: 15px;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+nav #menuToggle span.rt {
+  width: 15px;
+  right: 0;
+  top: 0;
+  transform-origin: 100% 0%;
+  -webkit-transform-origin: 100% 0;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+nav #menuToggle span.middle {
+  top: 12px;
+}
+nav #menuToggle span.lb {
+  width: 15px;
+  left: 0;
+  bottom: 0;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+nav #menuToggle span.rb {
+  width: 15px;
+  right: 0;
+  bottom: 0;
+  transform-origin: 100% 0%;
+  -webkit-transform-origin: 100% 0;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+nav #menuToggle.open span.lt {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 17px;
+  top: 1px;
+}
+nav #menuToggle.open span.rt {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 17px;
+  top: 1px;
+  right: 7px;
+}
+nav #menuToggle.open span.lb {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 17px;
+}
+nav #menuToggle.open span.rb {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 17px;
+  right: 7px;
+}
+nav #menuToggle.open span.middle {
+  opacity: 0;
+}
+@media only screen and (max-width: 991px) {
+  nav {
+    padding: 60px;
+  }
+}
+.container-fluid {
+  padding: 0 80px;
+}
+@media only screen and (max-width: 991px) {
+  .container-fluid {
+    padding: 0 40px;
+  }
 }
