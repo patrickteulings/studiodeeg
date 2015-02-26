@@ -1,0 +1,33 @@
+{
+  "name": "ezelsbruggetje-admin",
+  "version": "0.0.1",
+  "homepage": "http://www.ezelsbruggetje.nl/",
+  "authors": [
+    "Colin Spoel"
+  ],
+  "description": "Admin components of Ezelsbruggetje.nl",
+  "keywords": [
+    "bootstrap",
+    "theme"
+  ],
+  "license": "Apache",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "pages",
+    "index.html",
+    "/js"
+  ],
+  "main": [
+    "../dist/admin/css/app.css",
+    "../dist/admin/js/app.js"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "font-awesome": "~4.3.0",
+    "metisMenu": "~1.1.3"
+  }
+}
