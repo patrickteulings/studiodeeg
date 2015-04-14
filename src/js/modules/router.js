@@ -1,49 +1,34 @@
 
-//
-// ROUTER.JS
-// CONTROLS ALL HASH CHANGES
-//
 
-Router = (function(){
+// SWITHCING TO HISTORY.JS
 
-    var obj = {};
-    
+var State = History.getState();
+var path;
 
-    obj.init = function(){
-
-    };
-
-    obj.update = function(_path){
-        
-        if(_path.length === 0){            
-                        
-            // LOAD DEFAULT ITEMS            
-            $.address.value('home');                        
-        }
-
-
-        if(_path[0] === 'home'){
-            Home.init();
-        }
-
-    };
+console.log('history init', State.data, State.title, State.url);
 
 
 
-    return obj;
+History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+    // Log the State
+    var State = History.getState(); // Note: We are using History.getState() instead of event.state
+    console.log('history');
+    console.log(State.data);
+    console.log(State.title);
+    console.log(State.url);
+    //History.log('statechange:', State.data, State.title, State.url);
 
-})();
 
+    path = State.url.split('/').splice(4,5);
 
-// INITIALIZING THE ROUTER
-
-
-
-$.address.init(function(event) {
-    if($.address.value() === '/' || $.address.value() === undefined){
+    if(path[1] === 'werk'){
+        Work.init(path);
     }
-}).bind('change', function(event) {    
-    Router.update(event.pathNames);
+
 });
 
 
+
+//setTimeout(function(){
+//    History.pushState({state:1,rand:Math.random()}, "Uno", "/dist/werk/jan-koen-lomans/");
+//},3000);

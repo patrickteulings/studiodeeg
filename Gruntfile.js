@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 	// Configurable paths
 	var config = {
 		app: '',
-		dist: 'dist'
+		dist: '.'
 	};
 
 	grunt.initConfig({
@@ -14,18 +14,45 @@ module.exports = function (grunt) {
 		// Project settings
 		config: config,
 
+		php:{
+			dist: {
+	            options: {
+	                port: 1234,
+					hostname:'localhost',
+					bases:'.'
+				}
+        	}
+		},
+		// serve: {
+	    //     options: {
+	    //         port: 1234,
+		// 		path: ''
+	    //     }
+	    // },
 		express: {
-			all: {
+			server: {
 				options: {
 					port: 1234,
 					hostname: 'localhost',
-					livereload: false, // Deze heb ik hier uit gezet, want anders gaat het een oneindige loop creeren volgens mij met Watch.
-					bases:['.']
+					bases:'dist/'
+					//livereload: false, // Deze heb ik hier uit gezet, want anders gaat het een oneindige loop creeren volgens mij met Watch.
+
 					// spawn: false,
 					// debounceDelay: 5000 // in milliseconds
 				}
 			}
 		},
+		connect: {
+			server: {
+				options: {
+					port: 1234,					
+					base: ['.','dist/'],
+					directory:'dist/'
+					
+				}
+			}
+		},
+
 		pkg: grunt.file.readJSON('package.json'),
 
 		less: {
@@ -59,24 +86,29 @@ module.exports = function (grunt) {
 			js: {
 				src: [
 					'src/js/vendor/jquery/jquery-1.11.1.min.js',
+					'src/js/vendor/history/jquery.history.js',
 					'src/js/vendor/asual/jquery.address-1.5.js',
 					'src/js/vendor/bootstrap/bootstrap.min.js',
 					'src/js/vendor/greensock-js/CSSPlugin.min.js',
 					'src/js/vendor/greensock-js/EasePack.min.js',
 					'src/js/vendor/greensock-js/TweenLite.min.js',
-		            'src/js/vendor/modernizr/modernizr.js',		            
+		            'src/js/vendor/modernizr/modernizr.js',
 					'src/js/vendor/fastclick/fastclick.js',
 					'src/js/vendor/spin/spin.js',
+					'src/js/vendor/create-js/preloadjs-0.6.0.min.js',
 					'src/js/helpers/localstorage.js',
 					'src/js/helpers/utilities.js',
 					'src/js/helpers/partialsloader.js',
 					'src/js/templates/templates.js',
+					'src/js/helpers/smoothprogressbar.js',
 					'src/js/modules/socials.js',
-					'src/js/modules/factory.js',
-					'src/js/modules/router.js',
+					'src/js/modules/factory.js',					
 					'src/js/modules/mainnavigation.js',
-					'src/js/modules/home.js',
-					'src/js/app.js'					
+					'src/js/modules/work.js',
+					'src/js/modules/home.js',					
+					'src/js/modules/router.js',
+					'src/js/app.js'
+					
 
 				],
 				dest: '<%= config.dist %>/js/app.js'
@@ -152,10 +184,12 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-ftp-push');
+	grunt.loadNpmTasks('grunt-php');
 	grunt.loadNpmTasks('grunt-express');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	grunt.registerTask('build', ['less', 'concat']);
-	grunt.registerTask('default', ['build','express','watch']); // Called by default when starting grunt
+	grunt.registerTask('default', ['build','php','connect','watch']); // Called by default when starting grunt
 	grunt.registerTask('prod', ['build','copy:prod']); // Called by default when starting grunt
 	grunt.registerTask('admin', ['less:build_admin', 'concat:css_admin', 'concat:js_admin', 'copy:admin','watch']); // Called for building admin
 

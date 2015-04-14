@@ -4,9 +4,11 @@
 //  TYPOGRAPHY.LESS
 //
 
-body{
+body,html{
     font-family:@sansFont;
     font-weight: 100;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -16,12 +18,15 @@ h1,h2,h3,h4,h5{
 
 
 h1{
-    font-size: 48px;
+    font-size: 4rem;
     font-weight:100;
+    margin: 0;
+    padding: 0;
 }
 
 h2{
-    font-size: 32px;
+    font-size: 2.1rem;
+    margin-bottom: 40px;
 }
 
 h3{
@@ -36,8 +41,18 @@ h5{
 }
 
 p{
-    font-weight: 100;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #3F4343;
+    opacity: 0.99;
+    font-family: @serifFont;
 }
+
+.uppercase{
+    text-transform: uppercase;
+}
+
 
 // REPSONSIVE
 

@@ -1,12 +1,17 @@
 
 // NEW HTTP://WWW.STUDIODEEG WEBSITE
 
-$(document).ready(function(){    
+var baseURL = '/dist';
+
+
+$(document).ready(function(){
+
+
 
 
     App = (function(){
-        
-        var obj = {};        
+
+        var obj = {};
         var appState; // holds a string which we use in the router.js to avoid double loading
 
 
@@ -14,12 +19,12 @@ $(document).ready(function(){
 
         obj.init = function(){
 
-            MainNavigation.init();        
+            MainNavigation.init();
 
             Localstorage.addVisit();
 
             Utilities.replaceSVG();
-        
+
             FastClick.attach(document.body);
 
         };

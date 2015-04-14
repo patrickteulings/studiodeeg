@@ -1,0 +1,106 @@
+
+// 
+
+a{
+    text-decoration: none;
+    
+    &:hover{
+        text-decoration: none;    
+    }
+
+    &:active{
+        text-decoration: none;    
+    }
+
+    &:focus{
+        text-decoration: none;    
+    }
+}
+// TRIGGER HARWARE ACCELLERATION FOR ITEMS WITH CLASS:
+
+.accel{
+    -webkit-transform: translateZ(0);
+   -moz-transform: translateZ(0);
+   -ms-transform: translateZ(0);
+   -o-transform: translateZ(0);
+   transform: translateZ(0);
+}
+
+
+
+// HEADER IMAGES
+
+header{
+    position:relative;
+    top:0;
+    height: 860px;
+    width: 100%;
+    background-color: @greenLight;
+    color:#fff;
+    overflow-y: hidden;
+
+    h1{
+        margin-top: 425px;
+        position: relative;
+
+        &:before{
+            content:"";
+            position: absolute;
+            bottom: -40px;
+            height: 3px;
+            background-color: #fff;
+            width: 250px;
+
+        }
+    }
+
+    p{
+        font-family: @serifFont;
+        font-size: 1.05rem;
+        line-height: 2rem;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    // BACKGROUND TRIANGLES
+
+    .header-triangle-top-left{
+        width: 403px;
+        height: 282px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.15;
+
+        img{
+            position:absolute;
+            transform: translateY(0px);
+        }
+    }
+
+    .header-triangles-bottom-right{
+        position: absolute;
+        bottom: 10px;
+        right: 0px;
+    }
+
+
+    &.work-overview{
+       .header-triangle-top-left{
+            opacity: 0.05;
+       } 
+    }
+}
+
+
+// INTRO
+
+.intro{
+    h2{
+        text-align:center;
+    }
+}
+
+.defaultTextBlock{
+    padding: 100px 0;
+}

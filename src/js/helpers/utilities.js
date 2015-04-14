@@ -1,36 +1,51 @@
 //
 // UTILITIES.JS
-// CONTROLS ALL HASH CHANGES
 //
 
 Utilities = (function(){
 
     var obj = {};
 
-    obj.laravelBuild = true;
-    var catNames = [{dutch:'populair',english:'popular'},{dutch:'aardrijkskunde',english:'geography'},{dutch:'nederlands',english:"dutch"},{dutch:'scheikunde',english:"chemistry"},{dutch:'Basisschool',english:"primary"}];
     obj.winWidth = 0;
     var imageSuffix = ($('.svg').length) ? true : false;
+    var winScroll;
 
     //
-    // translates dutch category names to english for DB-communication
+    // Gets the browser css prefix
     //
-
-    obj.getEnglishCategoryName = function(_dutchName){
-        var nm;
-        var found = 0;
-        $.each(catNames,function(index,value){
-            if(value.dutch.toLowerCase() === _dutchName.toLowerCase()){                
-                found = 1;
-                nm = value.english;
-            }
-        });
-
-        // RETURN THE DEFAULT 'NEW' CATEGORY IF NOTHING IS FOUND
-
-        return (found === 1) ? nm : 'latest';
+    obj.getPrefix = function () {
+        if(!window.getComputedStyle) return false;
+        
+        var styles = window.getComputedStyle(document.documentElement, ''),
+        pre = (Array.prototype.slice
+            .call(styles)
+            .join('')
+            .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
+        )[1],
+        dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
+        return {
+            dom: dom,
+            lowercase: pre,
+            css: '-' + pre + '-',
+            js: pre[0].toUpperCase() + pre.substr(1)
+        };
     };
 
+
+
+    //
+    // CHANGE ALL LINKS WITH A HISTURY ATTRIBUTE TO NOT LINK TO A PAGE BUT TO
+    // FIRE A HISTORY PUSH
+    //
+
+    obj.captureHistoryLinks = function(){
+        $('a[data-history="true"]').each(function(e){            
+            $(this).on('click',function(e){
+                e.preventDefault();
+                History.pushState({state:1,rand:Math.random()}, "Duo", baseURL + $(this).attr('href'));
+            });
+        });
+    };
 
     //
     // CHECK TO SEE IF AN OBJECT IS EMPTY
@@ -47,7 +62,7 @@ Utilities = (function(){
 
 
     //
-    // CONVENIENT GLOBAL ACCES TO WINDOW WIDTH 
+    // CONVENIENT GLOBAL ACCES TO WINDOW WIDTH
     //
 
 
@@ -55,9 +70,16 @@ Utilities = (function(){
         return obj.winWidth;
     };
 
+    // YES SCROLLPOSITION
+
+    $(window).on('scroll',function(){
+        winScroll = $(window).scrollTop();
+    });
+
+
 
     // YES - WINDOWS WIDTH
-    
+
 
     $(window).on('resize',function(){
         obj.winWidth = $(window).width();
@@ -70,11 +92,17 @@ Utilities = (function(){
     };
 
 
+    // GET SCROLLTOP
+
+    obj.getScrollTop = function(){
+        return winScroll;
+    };
+
     // INITIALLY REPLACE ALL SVG WITH PNG
 
-    obj.replaceSVG = function(){        
-        if (!Modernizr.svg) {                    
-            $('img[src*=".svg"]').each(function() {                
+    obj.replaceSVG = function(){
+        if (!Modernizr.svg) {
+            $('img[src*=".svg"]').each(function() {
                 //E.g replaces 'logo.svg' with 'logo.png'.
                 $(this).attr('src', function() {
                     return $(this).attr('src').replace('.svg', '.png');

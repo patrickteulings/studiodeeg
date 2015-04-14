@@ -1,27 +1,100 @@
 @import "vendor/bootstrap/bootstrap.less";
 @import "helpers/variables.less";
 @import "helpers/mixins.less";
-@import "modules/buttons.less";
+@import "helpers/defaults.less";
 @import "modules/typography.less";
+@import "modules/buttons.less";
 @import "modules/navigation.less";
+@import "modules/work.less";
+
+
+body{
+    
+}
+
 
 // Bootstrap override
 
 .container-fluid{
-    padding: 0 80px;
+    &.textItem{
+        padding: 0 80px 160px;
+    }
 }
 
 
+.fillImages{
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+
+    &:hover{
+        .inner{
+            transform:scale(1.2);
+        }
+        p{
+            opacity: 1;
+            bottom: 45px;
+        }
+    }
+
+    h3{
+        color:#fff;
+        position: absolute;
+        bottom: 70px;
+        z-index:2;
+        left: 60px;
+    }
+    p{
+        position: absolute;
+        bottom: 30px;
+        left: 60px;
+        color:#fff;
+        z-index:3;
+        font-size: 13px;
+        opacity:0;
+        .transition(0.3s);
+    }
+
+    .inner{
+        width: 100%;
+        height: 100%;
+        transform: scale(1);
+        position: relative;
+        .transition(5s);
+
+
+
+    }
+
+    img{
+        width:100%;
+    }
+}
+
+
+#wrapper{
+    position:relative;
+    transform: translate(0,0);
+    margin-left: 0px;
+    .transition(0.2s);
+
+    &.open{
+        transform: translate(-100px,0);
+        //margin-left: -80px;
+    }
+}
 
 //
 //  RESPONSIVENESS
 //
 
 @media only screen and (max-width : @screen-sm-max) {
-    
+
     // Bootstrap override
 
     .container-fluid{
-        padding : 0 40px;    
+        &.textItem{
+            padding : 0 40px;
+        }
     }
 }
