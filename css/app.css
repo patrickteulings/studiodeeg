@@ -8182,7 +8182,20 @@ nav {
   width: 100%;
 }
 nav #brand {
-  display: inline;
+  display: inline-block;
+  position: relative;
+  height: 51px;
+}
+nav #brand #brandMasked {
+  position: absolute;
+  bottom: 0;
+  height: 10px;
+  width: 100%;
+  overflow-y: hidden;
+}
+nav #brand #brandMasked img {
+  position: absolute;
+  bottom: 0px;
 }
 nav #navigationItems {
   position: fixed;
@@ -8217,6 +8230,19 @@ nav #navigationItems .cell {
   -webkit-transition: 0.8s;
   -o-transition: 0.8s;
   transition: 0.8s;
+}
+nav #navigationItems .triangles {
+  width: 45px;
+  height: 474px;
+  background-size: cover;
+  background-image: url('/images/triangles-menu.svg');
+  position: absolute;
+  top: 300px;
+  right: -60px;
+  opacity: 0.5;
+  -webkit-transition: 0.3s ease-out 0.1s;
+  -o-transition: 0.3s ease-out 0.1s;
+  transition: 0.3s ease-out 0.1s;
 }
 nav #navigationItems ul {
   margin: 0;
@@ -8298,14 +8324,20 @@ nav #navigationItems.open .background {
   opacity: 1;
   width: 100%;
 }
+nav #navigationItems.open .triangles {
+  right: 0px;
+}
 nav #menuToggle {
   position: relative;
   z-index: 101;
+  top: 14px;
   width: 40px;
   float: left;
   height: 26px;
   padding: 0px 5px 10px;
   cursor: pointer;
+  height: 34px;
+  overflow-y: hidden;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
@@ -8314,6 +8346,20 @@ nav #menuToggle {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+}
+nav #menuToggle #maskedToggle {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  overflow-y: hidden;
+}
+nav #menuToggle #maskedToggle .inner {
+  position: absolute;
+  bottom: 0px;
+}
+nav #menuToggle #maskedToggle .inner span {
+  background: #d29bcc;
 }
 nav #menuToggle .inner {
   position: relative;

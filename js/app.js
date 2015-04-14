@@ -2628,7 +2628,19 @@ MainNavigation = (function(){
     // PARALLAX ACTIONS
 
     obj.paralaxIt = function(){
-        if(Utils.getScrollTop() > 860) return; // Dont show any css transition if the image is offscreen
+        var beyondHeader = false;
+
+        // Dont show any css transition if the image is offscreen
+        //if(Utils.getScrollTop() > 860){ 
+            $('#brandMasked').css('height',$(window).scrollTop() - (860 - 51 - 70));
+            $('#maskedToggle').css('height',$(window).scrollTop() - (860 - 51 - 70));            
+        
+        //}
+        // else{
+        //     if(beyondHeader === true){
+        //         beyondHeader = false;
+        //     }
+        // }
 
         $(triangleLT).css(prefix + 'transform','translateY(' + Math.round((Utils.getScrollTop()/2)) + 'px)');
         $(triangleLT).css('opacity',1- (Utils.getScrollTop()/200));

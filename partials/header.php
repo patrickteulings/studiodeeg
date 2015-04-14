@@ -42,7 +42,12 @@
 <body>
     <nav>
         <div id="mainNavigation">
-            <div id="brand"><img src="/images/studio-deeg-white.svg" alt="Studio Deeg, zo simpel kan het zijn"></div>
+            <div id="brand">
+                <img src="/images/studio-deeg-white.svg" alt="Studio Deeg, zo simpel kan het zijn">
+                <div id="brandMasked">
+                    <img src="/images/studio-deeg-pink.svg" alt="Studio Deeg, zo simpel kan het zijn">    
+                </div>
+            </div>
             <div id="navigationItems">
                 <div class="background"></div>
                 <div class="">
@@ -62,6 +67,12 @@
                         </ul>
                     </div>
                 </div>
+    
+                <!-- TRIANGLES -->
+
+                <div class="triangles"></div>
+
+
             </div>
 
             <!-- MENU TOGGLE BUTTON ( X ) -->
@@ -72,7 +83,15 @@
                     <span class="middle"></span>
                     <span class="lb"></span><span class="rb"></span>
                 </div>
+                <div id="maskedToggle">
+                    <div class="inner">
+                        <span class="lt"></span><span class="rt"></span>
+                        <span class="middle"></span>
+                        <span class="lb"></span><span class="rb"></span>
+                    </div>                                    
+                </div>
             </div>
+
 
         </div>
     </nav>
