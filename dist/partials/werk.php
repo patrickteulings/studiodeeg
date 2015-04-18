@@ -51,12 +51,14 @@
             </a>
         </li>
         <li class="thumb-tile more">
-            <div class="overlay"></div>
-            <div class="info">
-                <h3></h3>
-                <span class="divider"></span>
-                <p class="thumbSubtitle">Meer werk</p>
-            </div>
+            <a href="/werk/">
+                <div class="overlay"></div>
+                <div class="info">
+                    <h3></h3>
+                    <span class="divider"></span>
+                    <p class="thumbSubtitle">Meer werk</p>
+                </div>
+            </a>
         </li>
 
     </ul>

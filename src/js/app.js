@@ -23,7 +23,7 @@ $(document).ready(function(){
 
             Localstorage.addVisit();
 
-            Utilities.replaceSVG();
+            Utilities.replaceSVG();  
 
             FastClick.attach(document.body);
 
