@@ -8018,6 +8018,9 @@ button.close {
 .fa-meanpath:before {
   content: "\f20c";
 }
+.pink {
+  color: #d29bcc;
+}
 .table {
   display: table;
   width: 100%;
@@ -8109,9 +8112,44 @@ header.work-overview .header-triangle-top-left {
 }
 .intro h2 {
   text-align: center;
+  font-size: 2.6rem;
 }
 .defaultTextBlock {
   padding: 100px 0;
+}
+#readMoreSection {
+  padding: 100px 0 120px;
+  background: #F5F7F7;
+}
+#readMoreSection h3 {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  color: #939191;
+}
+#readMoreSection .readMoreButtons {
+  margin-top: 60px;
+}
+#howSection {
+  padding: 100px 0;
+}
+#howSection h2 {
+  text-align: center;
+  color: #2a706a;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+#howSection p {
+  text-align: justify;
+  margin: 20px;
+}
+#howSection .icon {
+  min-height: 120px;
+  margin: 30px auto;
+  text-align: center;
+}
+#howSection .icon img {
+  width: 117px;
+  margin: 0 auto;
 }
 body,
 html {
@@ -8165,6 +8203,52 @@ p {
     font-size: 18px;
   }
 }
+.btn {
+  text-align: center;
+  padding: 9px 20px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 30px;
+  width: 190px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.btn.green {
+  background-color: #86ccc6;
+}
+.btn.green.triangles {
+  background-image: url('/images/ui/button-triangle-one.png');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+.btn.center {
+  margin: 0px auto;
+}
+.btn.right {
+  float: right;
+}
+.btn:hover.green {
+  color: #2a706a;
+  background-color: #aadbd7;
+}
+.btn:hover.blue {
+  color: #3ea0bf;
+  background-color: #b0d9e6;
+}
+.btn.blue {
+  width: 210px;
+  background-color: #8ac6d9;
+}
+.btn.blue.triangles {
+  background-image: url('/images/ui/button-triangle-blue-one.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
 #progress {
   position: fixed;
   top: 0;
@@ -8174,31 +8258,57 @@ p {
   height: 10px;
   z-index: 100;
 }
+footer {
+  min-height: 200px;
+  background: #86ccc6;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  padding-top: 100px;
+}
+footer .address {
+  float: left;
+}
+footer .copyright {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 40px;
+}
+footer ul.socials {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+footer ul.socials li {
+  float: left;
+}
+footer ul.socials li {
+  width: auto;
+  margin-left: 0;
+  margin-right: 20px;
+}
+footer ul.socials li a {
+  color: #fff;
+}
+footer ul.socials li a i {
+  font-size: 1.3rem;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+footer ul.socials li a:hover i {
+  padding-right: 0;
+  color: #2a706a;
+}
+footer ul.socials li:first-child:after {
+  width: 0;
+  bottom: 0;
+}
 nav {
   position: fixed;
   top: 0px;
-  padding: 70px 85px 100px;
+  right: 0px;
   z-index: 100;
-  width: 100%;
-}
-nav #brand {
-  display: inline-block;
-  position: relative;
-  height: 51px;
-}
-nav #brand #brandMasked {
-  position: absolute;
-  bottom: 0;
-  height: 10px;
-  width: 100%;
-  overflow-y: hidden;
-}
-nav #brand #brandMasked #logoMasked {
-  width: 51px;
-  height: 51px;
-  position: absolute;
-  bottom: 0px;
-  background: url(/images/studio-deeg-pink.svg);
 }
 nav #navigationItems {
   position: fixed;
@@ -8264,13 +8374,30 @@ nav #navigationItems ul li {
 nav #navigationItems ul li a {
   text-decoration: none;
   color: #77bbb5;
+  display: block;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
 }
+nav #navigationItems ul li a.home {
+  color: #d29bcc;
+}
 nav #navigationItems ul li a i {
   font-size: 1rem;
   padding-top: 1.3rem;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+nav #navigationItems ul li a i.deeg-icon {
+  display: inline-block;
+  float: right;
+  background: url('/images/ui/icon-deeg.svg') no-repeat;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  top: 1.3rem;
+  right: 0;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
@@ -8280,6 +8407,9 @@ nav #navigationItems ul li a:hover {
 }
 nav #navigationItems ul li a:hover i {
   padding-right: 1rem;
+}
+nav #navigationItems ul li a:hover i.deeg-icon {
+  right: 1rem;
 }
 nav #navigationItems ul li:first-child {
   margin-bottom: 60px;
@@ -8330,12 +8460,57 @@ nav #navigationItems.open .background {
 nav #navigationItems.open .triangles {
   right: 0px;
 }
-nav #menuToggle {
-  position: relative;
+@media only screen and (max-width: 1199px) {
+  nav {
+    background: #fff;
+    padding: 20px;
+  }
+}
+#logoBackground {
+  width: 100%;
+  height: 95px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+#logo {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 10;
+  display: block;
+  width: 51px;
+  height: 51px;
+}
+#logo #brand {
+  display: inline-block;
+  background: url(/images/studio-deeg-pink.svg);
+}
+#logo #brand img {
+  opacity: 0;
+}
+#logo #brand #brandMasked {
+  position: absolute;
+  bottom: 0;
+  height: 10px;
+  width: 100%;
+  overflow-y: hidden;
+}
+#logo #brand #brandMasked #logoMasked {
+  width: 51px;
+  height: 51px;
+  position: absolute;
+  bottom: 0px;
+  background: url(/images/studio-deeg-pink.svg);
+}
+#menuToggle {
+  position: absolute;
   z-index: 101;
-  top: 14px;
+  top: 30px;
+  right: 20px;
   width: 45px;
-  float: left;
   height: 26px;
   padding: 0px 5px 10px;
   cursor: pointer;
@@ -8350,30 +8525,30 @@ nav #menuToggle {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-nav #menuToggle #maskedToggle {
+#menuToggle #maskedToggle {
   position: absolute;
   width: 100%;
   height: 0;
   bottom: 0;
   overflow-y: hidden;
 }
-nav #menuToggle #maskedToggle .inner {
+#menuToggle #maskedToggle .inner {
   position: absolute;
   bottom: 0px;
 }
-nav #menuToggle #maskedToggle .inner span {
+#menuToggle #maskedToggle .inner span {
   background: #d29bcc;
 }
-nav #menuToggle .inner {
+#menuToggle .inner {
   position: relative;
   width: 45px;
   height: 34px;
 }
-nav #menuToggle span {
+#menuToggle span {
   display: block;
   width: 46px;
   height: 3px;
-  background: #fff;
+  background: #d29bcc;
   position: absolute;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
@@ -8386,7 +8561,7 @@ nav #menuToggle span {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-nav #menuToggle span.lt {
+#menuToggle span.lt {
   width: 23px;
   left: 0;
   top: 0;
@@ -8395,7 +8570,7 @@ nav #menuToggle span.lt {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
-nav #menuToggle span.rt {
+#menuToggle span.rt {
   width: 23px;
   right: 0;
   top: 0;
@@ -8404,10 +8579,10 @@ nav #menuToggle span.rt {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
-nav #menuToggle span.middle {
+#menuToggle span.middle {
   top: 15px;
 }
-nav #menuToggle span.lb {
+#menuToggle span.lb {
   width: 23px;
   left: 0;
   bottom: 0;
@@ -8416,7 +8591,7 @@ nav #menuToggle span.lb {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
-nav #menuToggle span.rb {
+#menuToggle span.rb {
   width: 23px;
   right: 0;
   bottom: 0;
@@ -8425,55 +8600,107 @@ nav #menuToggle span.rb {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
-nav #menuToggle.open {
+#menuToggle.open {
   margin-right: 340px;
 }
-nav #menuToggle.open span.lt {
+#menuToggle.open span.lt {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
   width: 17px;
-  top: 1px;
+  top: 3px;
   left: 8px;
 }
-nav #menuToggle.open span.rt {
+#menuToggle.open span.rt {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   width: 17px;
-  top: 1px;
+  top: 3px;
   right: 14px;
 }
-nav #menuToggle.open span.lb {
+#menuToggle.open span.lb {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   width: 17px;
-  bottom: 6px;
+  bottom: 4px;
   left: 7px;
 }
-nav #menuToggle.open span.rb {
+#menuToggle.open span.rb {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
   width: 17px;
   right: 12px;
-  bottom: 6px;
+  bottom: 4px;
 }
-nav #menuToggle.open span.middle {
+#menuToggle.open span.middle {
   opacity: 0;
 }
-@media only screen and (max-width: 991px) {
-  nav {
-    padding: 60px;
-  }
+body.work #brand #brandMasked #logoMasked {
+  background: url(/images/studio-deeg-blue.svg);
 }
-body.work #logoMasked {
-  background: url(/images/studio-deeg-pink.svg);
+body.work #menuToggle #maskedToggle .inner span {
+  background: #8ac6d9;
+}
+body.default #brand #brandMasked #logoMasked {
+  background: url(/images/studio-deeg-green.svg);
+}
+body.default #menuToggle #maskedToggle .inner span {
+  background: #86ccc6;
+}
+@media only screen and (min-width: 992px) {
+  #logoBackground {
+    display: none;
+  }
+  #logo {
+    position: fixed;
+    left: 70px;
+    top: 70px;
+  }
+  #logo #brand {
+    background: none;
+  }
+  #logo #brand img {
+    opacity: 1;
+  }
+  #menuToggle {
+    position: fixed;
+    right: 70px;
+    top: 70px;
+  }
+  #menuToggle span {
+    background: #fff;
+  }
+  #menuToggle:hover span.lt {
+    top: 5px;
+  }
+  #menuToggle:hover span.rt {
+    top: 5px;
+  }
+  #menuToggle:hover span.lb {
+    bottom: 5px;
+  }
+  #menuToggle:hover span.rb {
+    bottom: 5px;
+  }
+  #menuToggle.open:hover span.lt {
+    top: 3px;
+  }
+  #menuToggle.open:hover span.rt {
+    top: 3px;
+  }
+  #menuToggle.open:hover span.lb {
+    bottom: 4px;
+  }
+  #menuToggle.open:hover span.rb {
+    bottom: 4px;
+  }
 }
 .hero {
   background-size: cover;
@@ -8482,6 +8709,14 @@ body.work #logoMasked {
 }
 .hero img {
   width: 100%;
+}
+.work-detail h1 {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: 3rem;
+}
+.work-detail #readMoreSection {
+  background: #d7ecf2;
 }
 .portfolioThumbs ul {
   margin: 0;
@@ -8566,8 +8801,70 @@ body.work #logoMasked {
 .portfolioThumbs ul li.thumb-tile.more {
   background: #8ac6d9;
 }
-.portfolioThumbs.three li {
+.portfolioThumbs.three-columns li {
   width: 33.3333333%;
+}
+.portfolioThumbs.two-columns li {
+  width: 50%;
+}
+.portfolioItem.browserImage {
+  padding-top: 80px;
+  background: #eaf5f8;
+}
+.portfolioItem.browserImage .inner-browser {
+  background: #EDEDED;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-top-left-radius: 8px;
+  border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-top-right-radius: 8px;
+  border-top-right-radius: 8px;
+  max-width: 920px;
+  position: relative;
+}
+.portfolioItem.browserImage .inner-browser ul.browserButtons {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: absolute;
+  top: 14px;
+  left: 10px;
+}
+.portfolioItem.browserImage .inner-browser ul.browserButtons li {
+  float: left;
+}
+.portfolioItem.browserImage .inner-browser ul.browserButtons li {
+  width: 15px;
+  height: 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background: #fff;
+  margin-right: 5px;
+}
+.portfolioItem.browserImage .inner-browser .imageContainer {
+  padding: 40px 10px 0;
+}
+.portfolioItem.browserImage .inner-browser .imageContainer img {
+  width: 100%;
+  border: 1px solid #D7D7D7;
+  border-bottom: 0px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.portfolioItem.imageWithDescription {
+  padding: 100px 0 0;
+}
+.portfolioItem.imageWithDescription .imageContainer {
+  position: relative;
+}
+.portfolioItem.imageWithDescription .imageContainer img {
+  position: relative;
+  bottom: 0px;
 }
 @media (max-width: 991px) {
   .portfolioThumbs ul {

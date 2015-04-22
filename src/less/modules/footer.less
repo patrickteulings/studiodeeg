@@ -1,0 +1,54 @@
+footer{
+    
+    min-height: 200px;
+    background: @greenLight;
+    color: #fff;
+    font-family: @sansFont;
+    font-weight: 400;
+    padding-top: 100px;
+
+    .address{
+        float:left;
+    }
+    
+    .copyright{
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin-top: 40px;
+    }
+
+    ul.socials{
+        .unStyledList();
+        .floatingList();
+        
+        li{
+            width: auto;
+            margin-left:0;
+            margin-right: 20px;
+            
+            a{
+                color: #fff;
+                
+                i{
+                    font-size: 1.3rem;
+                    .transition(0.2s);
+                }
+
+                &:hover{
+                    i{
+                        padding-right:0;
+                        color:@greenDark;
+                    }
+                }
+            }
+            
+            &:first-child{
+                &:after{
+                    width:  0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+}

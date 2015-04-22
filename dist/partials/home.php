@@ -5,12 +5,10 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-1">
                 <h1>
-                    The details are not the details
+                    Studio Deeg
                 </h1>
                 <p>
-                    They make the design.<br>
-                    Daar geloven we in. En dat geldt natuurlijk niet alleen voor het design. Perfecte code en de
-                    optimale user experience barsten van de kleine details die je misschien niet ziet, maar wel merkt.
+                    Zo simpel kan het zijn
                 </p>
             </div>
         </div>
@@ -41,7 +39,7 @@
             </a>
         </li>
         <li style="background-image:url(/images/koen/thumb-jankoenlomans-home.jpg); background-size: cover; background-repeat:no-repeat;" data-image="/images/koen/thumb-jankoenlomans-home.jpg">
-            <a href="/werk/jankoenlomans/" data-history="true">
+            <a href="/werk/jan-koen-lomans/" data-history="true">
                 <div class="overlay"></div>
                 <div class="info">
                     <h3>Jan Koen Lomans</h3>
@@ -63,32 +61,26 @@
 
     </ul>
 </div>
-<div class="portfolioThumbs two-columns">
-    <ul>
-        <li style="background-image:url(/images/dummy/grapes.png); background-size: cover; background-repeat:no-repeat;" data-image="/images/gerdiensten/thumb-gerdiensten-home.jpg">
-            <a href="/werk/gerdiensten/" data-history="true">
-                <div class="overlay"></div>
-                <div class="info">
-                    <h3>Gerdiensten</h3>
-                    <span class="divider"></span>
-                    <p class="thumbSubtitle">Logo en huisstijl</p>
-                </div>
-            </a>
-        </li>
-        <li style="background-image:url(/images/dummy/laptop.png); background-size: cover; background-repeat:no-repeat;" data-image="/images/koen/thumb-jankoenlomans-home.jpg">
-            <a href="/werk/jankoenlomans/"  data-history="true">
-                <div class="overlay"></div>
-                <div class="info">
-                    <h3>Jan Koen Lomans</h3>
-                    <span class="divider"></span>
-                    <p class="thumbSubtitle">Website(s) en logo</p>
-                </div>
-            </a>
-        </li>
-    </ul>
+
+<div id="howSection">
+    <h2>Hoe doet Deeg dat?</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="icon"><img src="/images/ui/icon-develop.svg" alt="development"></div>
+                <p>Met de laatste technieken en javascript / css frameworks ontwikkel ik voor de moderne browsers. Altijd responsive en dus op elk apparaat - met zijn eigen gebruikcontext - optimaal te bekijken. </p>
+            </div>
+            <div class="col-md-4" style="text-align:center;">
+                <div class="icon"><img src="/images/ui/icon-CMS.svg" alt="development"></div>
+                <p>Zonder CMS ben je nergens. Als front-ender kan ik met veel bestaande CMS’en aan de slag. Zelf een groot Wordpress fan. Daarbij letter we ook op de performance van de site, omdat Google dat ook doet.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="icon"><img src="/images/ui/icon-ux.svg" alt="User Experience design"></div>
+                <p>Als User Experience evangalist let ik op de kleinste details. De soepele functionele transities die een gebruiker vertellen wat er gat gebeuren, logische plaatsing van de belangrijkste elementen en snelle toegang tot de hele site.</p>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 
 
 <div id="readMoreSection">
@@ -96,13 +88,13 @@
     <div class="container-fluid">
         <div class="row readMoreButtons">
             <div class="col-md-4">
-                <a class="btn green triangles one right">Bekijk werk</a>
+                <a href="/werk/" data-history="true" class="btn green triangles one right">Bekijk werk</a>
             </div>
             <div class="col-md-4" style="text-align:center;">
-                <a class="btn green triangles one center">services</a>
+                <a href="/services/" data-history="true" class="btn green triangles one center">services</a>
             </div>
             <div class="col-md-4">
-                <a class="btn green triangles one">contact</a>
+                <a href="/contact/" data-history="true"  class="btn green triangles one">contact</a>
             </div>
         </div>
     </div>

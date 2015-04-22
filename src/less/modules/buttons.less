@@ -7,6 +7,62 @@
 
 }
 
+.btn{
+    text-align:center;
+    padding: 9px 20px;
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 0.8rem;
+    line-height: 30px;
+    width:190px;
+    .border-radius(2px);
+    .transition(0.3s);
+
+    &.green{
+        background-color: @greenLight;        
+        
+        &.triangles{
+            background-image:url('/images/ui/button-triangle-one.png');
+            background-repeat: no-repeat;
+            background-position: top right;
+        }        
+    }
+
+    &.center{
+        margin: 0px auto;
+    }
+
+    &.right{
+        float:right;
+    }
+
+    &:hover{
+        
+        &.green{
+            color: @greenDark;
+            background-color:lighten(@greenLight,10%);            
+        }
+        &.blue{
+            color: darken(@blueLight,20%);
+            background-color:lighten(@blueLight,10%);            
+        }
+    }
+
+    // BLUE BUTTONS
+    &.blue{
+        width: 210px;
+        background-color: @blueLight;                
+        &.triangles{
+            background-image:url('/images/ui/button-triangle-blue-one.svg');
+            background-repeat: no-repeat;
+            background-position: top right;
+        }        
+    }
+
+
+
+}
+
 #progress{
     position:fixed;
     top:0;

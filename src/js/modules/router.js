@@ -8,22 +8,46 @@ var path;
 console.log('history init', State.data, State.title, State.url);
 
 
+path = State.url.split('/');
+
+path.splice(0,3); // REMOVES HTTP and DOMAINNAME FROM PATH
+
+console.log('path: ' + path.length);
+
+if(path.length === 1){
+    History.pushState({state:1,rand:Math.random()}, "home", '/home');
+}
 
 History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+    
     // Log the State
     var State = History.getState(); // Note: We are using History.getState() instead of event.state
     console.log('history');
     console.log(State.data);
     console.log(State.title);
     console.log(State.url);
-    //History.log('statechange:', State.data, State.title, State.url);
+    console.log('------------------');
 
 
-    path = State.url.split('/').splice(4,5);
+    path = State.url.split('/');
+    
+    path.splice(0,3); // REMOVES HTTP and DOMAINNAME FROM PATH
+    
+    
+    //  *************************************************************** //
+    //                                                                  
+    // INIT OUR MODULES BASED ON OUR ROUTE
+    //                                                                  
+    //  **************************************************************  //    
 
-    if(path[1] === 'werk'){
+    if(path[0] === 'werk'){
         Work.init(path);
     }
+
+    if(path[0] === 'home'){
+        Home.init(path);
+    }
+
 
 });
 

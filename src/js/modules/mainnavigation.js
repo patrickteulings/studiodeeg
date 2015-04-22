@@ -31,6 +31,9 @@ MainNavigation = (function(){
         });
 
         menuContainer.find('li:not(".social")').css('margin-left','400px');
+        menuContainer.find('a').on('click',function(){
+            obj.toggleMenu();
+        });
 
         // RquestAnimationFrame
 

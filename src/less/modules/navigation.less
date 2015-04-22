@@ -4,36 +4,10 @@ nav{
 
     position: fixed;
     top: 0px;
-    padding: 70px 85px 100px;
+    right: 0px;
     z-index: 100;
-    width: 100%;
-
-    #brand{
-        display: inline-block;
-        position: relative;
-        height: 51px;
-
-        #brandMasked{
-            position:absolute;
-            bottom: 0; 
-            height: 10px;
-            width: 100%;
-            overflow-y: hidden;
-            
-            #logoMasked{
-                width:51px;
-                height: 51px;
-                position: absolute;
-                bottom: 0px;
-                background: url(/images/studio-deeg-pink.svg);
-            }
-
-            img{
-            } 
-        }
-    }
-
-
+    
+    
     #navigationItems{
         //display: none;
         position: fixed;
@@ -94,13 +68,29 @@ nav{
                 a{
                     text-decoration:none;
                     color: @greenMenu;
+                    display:block;
                     .transition(0.2s);
-
+                    
+                    &.home{
+                        color:@pink;
+                    }
                     // font icons
                     i{
                         font-size: 1rem;
                         padding-top: 1.3rem;
                         .transition(0.2s);
+                    
+                        &.deeg-icon{
+                            display:inline-block;
+                            float:right;
+                            background:url('/images/ui/icon-deeg.svg') no-repeat;
+                            position:relative;
+                            width:18px;
+                            height: 18px;
+                            top: 1.3rem;
+                            right: 0;
+                            .transition(0.2s);
+                        }
                     }
 
                     &:hover{
@@ -108,6 +98,10 @@ nav{
 
                         i{
                             padding-right: 1rem;
+
+                            &.deeg-icon{
+                                right: 1rem;
+                            }
                         }
                     }
                 }
@@ -179,135 +173,6 @@ nav{
         }
     }
 
-    
-
-    #menuToggle{
-        position: relative;
-        z-index: 101;        
-        top: 14px;
-        width:45px;
-        float:left;
-        height: 26px;
-        padding: 0px 5px 10px;
-        cursor:pointer;
-        height: 34px;
-        overflow-y:hidden;
-        .transition(0.2s);
-        .pull-right();
-        .border-radius(2px);
-
-        
-        #maskedToggle{
-            position: absolute;
-            width:100%;
-            height: 0;
-            bottom:0;
-            overflow-y:hidden;
-        
-            .inner{
-                position:absolute;
-                bottom:0px;
-
-                span{
-                    background: @pink;
-                }
-            }
-        }
-
-        .inner{
-            position:relative;
-            width: 45px;
-            height: 34px;
-        }
-
-        span{
-            display: block;
-            width: 46px;
-            height: 3px;
-            background: #fff;
-            position:absolute;
-            .transition(0.2s);
-            .rotate(0deg);
-            .border-radius(2px);
-
-            &.lt{
-                width:23px;
-                left:0;
-                top:0;
-                transform-origin: 0 0;
-                -webkit-transform-origin: 0 0;
-                .border-right-radius(0px);
-            }
-            &.rt{
-                width:23px;
-                right:0;
-                top:0;
-                transform-origin: 100% 0%;
-                -webkit-transform-origin: 100% 0;
-                .border-left-radius(0px);
-            }
-            &.middle{
-                top: 15px;
-            }
-            &.lb{
-                width:23px;
-                left:0;
-                bottom:0;
-                transform-origin: 0 0;
-                -webkit-transform-origin: 0 0;
-                .border-right-radius(0px);
-            }
-            &.rb{
-                width:23px;
-                right:0;
-                bottom:0;
-                transform-origin: 100% 0%;
-                -webkit-transform-origin: 100% 0;
-                .border-left-radius(0px);
-            }
-        }
-
-        // OPENED
-
-        &.open{
-
-            margin-right: 340px;
-
-            span{
-                &.lt{
-                    .rotate(45deg);
-                    width: 17px;
-                    top:1px;
-                    left: 8px;
-                }
-                &.rt{
-                    .rotate(-45deg);
-                    width: 17px;
-                    top:1px;
-                    right: 14px;
-                }
-                &.lb{
-                    .rotate(-45deg);
-                    width: 17px;
-                    bottom: 6px;
-                    left:7px;
-
-                }
-                &.rb{
-                    .rotate(45deg);
-                    width: 17px;
-                    right: 12px;
-                    bottom: 6px;
-                }
-
-                &.middle {
-                    opacity:0;
-                }
-            }
-        }
-    }
-
-
 
 
 
@@ -315,11 +180,210 @@ nav{
     //  RESPONSIVENESSS
     //
 
-    @media only screen and (max-width : @screen-sm-max) {
-        padding : 60px;
+    @media only screen and (max-width : @screen-md-max) {
+        background:#fff;
+        padding : 20px;
     }
 
 }
+
+
+//  *************************************************************** //
+//                                                                  
+//  LOGO AND MENU TOGGLE BACKGROUND
+//                                                                  
+//  **************************************************************  //
+
+#logoBackground{
+    width: 100%;
+    height: 95px;
+    background:#fff;
+    position:absolute;
+    left: 0;
+    top:0;
+    z-index:9;
+}
+
+
+
+//  *************************************************************** //
+//                                                                  
+//  BRAND LOGO
+//                                                                  
+//  **************************************************************  //
+
+#logo{
+    position: absolute;
+    height: 51px;
+    left: 20px;
+    top: 20px;
+    z-index: 10;
+    display:block;
+    width:51px;
+    height: 51px;
+
+    #brand{
+        display: inline-block;
+        img{
+            opacity:0;
+        }
+        background:url(/images/studio-deeg-pink.svg);
+
+        #brandMasked{
+            position:absolute;
+            bottom: 0; 
+            height: 10px;
+            width: 100%;
+            overflow-y: hidden;
+            
+            #logoMasked{
+                width:51px;
+                height: 51px;
+                position: absolute;
+                bottom: 0px;
+                background: url(/images/studio-deeg-pink.svg);
+            }
+
+            img{
+            } 
+        }
+    }
+}
+
+
+
+//  *************************************************************** //
+//                                                                  
+//  MENU TOGGLE
+//                                                                  
+//  **************************************************************  //
+
+#menuToggle{
+    position: absolute;
+    z-index: 101;        
+    top: 30px;
+    right: 20px;
+    width:45px;        
+    height: 26px;
+    padding: 0px 5px 10px;
+    cursor:pointer;
+    height: 34px;
+    overflow-y:hidden;
+    .transition(0.2s);
+    .pull-right();
+    .border-radius(2px);
+
+
+    #maskedToggle{
+        position: absolute;
+        width:100%;
+        height: 0;
+        bottom:0;
+        overflow-y:hidden;
+
+        .inner{
+            position:absolute;
+            bottom:0px;
+
+            span{
+                background: @pink;
+            }
+        }
+    }
+
+    .inner{
+        position:relative;
+        width: 45px;
+        height: 34px;
+    }
+
+    span{
+        display: block;
+        width: 46px;
+        height: 3px;
+        background: @pink;
+        position:absolute;
+        .transition(0.2s);
+        .rotate(0deg);
+        .border-radius(2px);
+
+        &.lt{
+            width:23px;
+            left:0;
+            top:0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            .border-right-radius(0px);
+        }
+        &.rt{
+            width:23px;
+            right:0;
+            top:0;
+            transform-origin: 100% 0%;
+            -webkit-transform-origin: 100% 0;
+            .border-left-radius(0px);
+        }
+        &.middle{
+            top: 15px;
+        }
+        &.lb{
+            width:23px;
+            left:0;
+            bottom:0;
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            .border-right-radius(0px);
+        }
+        &.rb{
+            width:23px;
+            right:0;
+            bottom:0;
+            transform-origin: 100% 0%;
+            -webkit-transform-origin: 100% 0;
+            .border-left-radius(0px);
+        }
+    }
+
+    // OPENED
+
+    &.open{
+
+        margin-right: 340px;
+
+        span{
+            &.lt{
+                .rotate(45deg);
+                width: 17px;
+                top:3px;
+                left: 8px;
+            }
+            &.rt{
+                .rotate(-45deg);
+                width: 17px;
+                top:3px;
+                right: 14px;
+            }
+            &.lb{
+                .rotate(-45deg);
+                width: 17px;
+                bottom: 4px;
+                left:7px;
+
+            }
+            &.rb{
+                .rotate(45deg);
+                width: 17px;
+                right: 12px;
+                bottom: 4px;
+            }
+
+            &.middle {
+                opacity:0;
+            }
+        }
+    }
+}    
+
 
 
 //  *************************************************************** //
@@ -329,9 +393,125 @@ nav{
 //  **************************************************************  //
 
 body.work{    
-    #logoMasked {    
-        background: url(/images/studio-deeg-pink.svg);
-    }    
+    
+                
+    #brand{
+        #brandMasked{
+            #logoMasked {    
+                background: url(/images/studio-deeg-blue.svg);
+            }
+        }
+    }
+    
+    #menuToggle{
+        #maskedToggle{
+        
+            .inner{
+
+                span{
+                    background: @blueLight;
+                }
+            }
+        }
+    }
+}    
+
+
+body.default{        
+            
+    #brand{
+        #brandMasked{
+            #logoMasked {    
+                background: url(/images/studio-deeg-green.svg);
+            }
+        }
+    }
+    
+    #menuToggle{
+        #maskedToggle{
+        
+            .inner{
+
+                span{
+                    background: @greenLight;
+                }
+            }
+        }
+    }
 }
+
+
+//  *************************************************************** //
+//                                                                  
+//  RESPONSIVENESS
+//                                                                  
+//  **************************************************************  //    
+
+@media only screen and (min-width : @screen-md-min) {
+    #logoBackground{
+        display:none;
+    }
+
+    #logo{
+        position: fixed;
+        left: 70px;
+        top: 70px;
+        #brand{
+            background:none;
+            img{
+                opacity:1;
+            }
+        }
+    }
+    #menuToggle{
+        position: fixed;
+        right: 70px;
+        top: 70px;
+
+        span{
+            background: #fff;
+        }
+        
+        &:hover{
+            span{
+                &.lt{
+                    top: 5px;
+                }
+                &.rt{
+                    top: 5px;
+                }
+                &.lb{
+                    bottom: 5px;
+                }
+                &.rb{
+                    bottom: 5px;
+                }
+
+            }
+        }
+
+        &.open{
+            &:hover{
+             span{
+                &.lt{
+                    top: 3px;
+                }
+                &.rt{
+                    top: 3px;
+                }
+                &.lb{
+                    bottom: 4px;
+                }
+                &.rb{
+                    bottom: 4px;
+                }
+
+            }               
+            }
+        }        
+    }    
+
+}
+
 
 

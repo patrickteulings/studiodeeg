@@ -1,58 +1,82 @@
-<div class="container-fluid textItem">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1>Jan koen lomans</h1>
-            <h2>Website(s) en huisstijl voor een getalenteerd kunstenaar</h2>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <p>Voor deze bevriende kunstenaar ontwikkelde Deeg de - alweer zesde - nieuwe website. Een toevallig, ongevraagd, ontwerp van een beeldmerk werd uiteindelijk de basis voor een nieuwe huisstijl.</p>
-        </div>
-    </div>
-</div>
-
-<div class="hero"></div>
-
-<div class="container-fluid textItem topMargin-80">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1 class="marginBottom-40">De site</h1>
-
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <p>Een eenvoudige site ging het worden, gebaseerd op Wordpress. Een minimalistische homepage met ruimte voor beelden en 100% responsive. Dus ook je tablet en telefoon ziet de site er goed uit.</p>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 fillImages">
-            <h3>Jan Koen Lomans</h3>
-            <p>Website en huisstijl</p>
-            <div class="inner">
-                <img src="/dist/images/test-0.jpg">
+<header class="work-detail">
+    <div class="header-triangle-top-left accel"><img src="/images/header-triangle-top-left.svg" alt=""></div>
+    <div class="header-triangles-bottom-right accel"><img src="/images/header-triangles-green.svg" alt=""></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-11 col-lg-offset-1">
+                <h1>
+                     De kunst van de vergankelijkheid
+                </h1>
+                <p>
+                    Een nieuwe website, en per ongeluk een nieuwe huisstijl voor Jan Koen Lomans
+                </p>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-4 fillImages">
-            <div class="inner">
-                <img src="/dist/images/test-1.jpg">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-4 fillImages">
-            <div class="inner">
-                <img src="/dist/images/test-2.jpg">
+    </div>
+</header>
+
+<!-- INTRO -->
+
+<div class="intro defaultTextBlock">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <h2 class="uppercase pink">En dat is 6...</h2>
+                <p>Voor deze bevriende kunstenaar ontwikkelde Deeg de - alweer zesde - nieuwe website. Een toevallig, ongevraagd, ontwerp van een beeldmerk werd uiteindelijk de basis voor een nieuwe huisstijl.</p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid textItem">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1>Studio Deeg</h1>
-            <h2>Zo simpel kan het zijn</h2>
+<!-- PORTFOLIO BLOCK -->
+
+<div class="portfolioItem browserImage">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-md-offset-2">
+                <div class="inner-browser">
+                    <ul class="browserButtons"><li></li><li></li><li></li></ul>
+                    <div class="imageContainer">
+                        <img src="/images/koen/JKL_0.jpg">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- PORTFOLIO BLOCK, IMAGE WITH DESCRIPTION -->
+
+<div class="portfolioItem imageWithDescription">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 col-md-offset-1">
+                <h2>RESPONSIVE</h2>
+                <p>Het vertalen van je merk en merkwaarden in online ervaringen, dat is wat Studio Deeg doet. Door te durven itereren en experimenteren, met de gebruikerservaring en context - mobiel, tablet, reserveren of informeren - maken we samen iets waar de gebruiker echt iets aan heeft.</p>
+            </div>
+            <div class="col-sm-12 col-md-3 col-md-offset-1 imageContainer" style="display:table;">
+                <div style="display:table-cell; vertical-align:bottom;">
+                    <img src="/images/koen/ipad.jpg" alt="Rsponsive">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="readMoreSection">    
+    <div class="container-fluid">
+        <div class="row readMoreButtons">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4" style="text-align:center;">
+                <a class="btn blue triangles one center">BEKIJK MEER WERK</a>
+            </div>
+            <div class="col-md-4">                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

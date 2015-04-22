@@ -13,14 +13,13 @@ Work = (function(){
 
     obj.init = function(_path){
 
-        console.log('work: ' + _path);
+        TweenLite.to($('#view'),0.5,{opacity:0});        
 
-        $('#view').css('opacity',0);
+        var partialURL = (_path[1] !== undefined) ? '/partials/werk.php' : '/partials/werk/' + _path[1] + '.php';
 
-        PartialsLoader.loadPartial(baseURL + '/partials/werk/jan-koen-lomans.php').done(function(data){
+        PartialsLoader.loadPartial(partialURL).done(function(data){
             $('#view').html(data);
-
-            Utilities.captureHistoryLinks();
+            $('html,body').scrollTop(0);
         });
 
         obj.loadImages();
@@ -90,7 +89,7 @@ Work = (function(){
 
         // ADD MANIFEST FOR MULTIPLE IMAGES
 
-        var manifest = [{src:"/dist/images/koen/jankoenlomans-landing.jpg", id:"BG-01"},{src:"/dist/images/koen/JKL_0.jpg", id:"BG-02"},{src:"/dist/images/koen/JKL_0.jpg", id:"BG-03"},{src:"/dist/images/koen/JKL_0.jpg", id:"BG-04"}];
+        var manifest = [{src:"/images/koen/jankoenlomans-landing.jpg", id:"BG-01"},{src:"/images/koen/JKL_0.jpg", id:"BG-02"},{src:"/images/koen/JKL_0.jpg", id:"BG-03"},{src:"/images/koen/JKL_0.jpg", id:"BG-04"}];
 
         // START PRELOAD
 

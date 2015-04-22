@@ -38,14 +38,16 @@ Utilities = (function(){
     // FIRE A HISTORY PUSH
     //
 
-    obj.captureHistoryLinks = function(){
+
+    obj.captureHistoryLinks = function(){        
         $('a[data-history="true"]').each(function(e){            
             $(this).on('click',function(e){
                 e.preventDefault();
-                History.pushState({state:1,rand:Math.random()}, "Duo", baseURL + $(this).attr('href'));
+                History.pushState({state:1,rand:Math.random()}, "Duo", $(this).attr('href'));
             });
         });
     };
+
 
     //
     // CHECK TO SEE IF AN OBJECT IS EMPTY

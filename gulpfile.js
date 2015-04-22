@@ -15,17 +15,13 @@ var paths = {
     scripts: './src/js/**/*.js'
 }
 
-gulp.task('default', function() {
-  // place code for your default task here
-});
 
+//  *************************************************************** //
+//                                                                  
+//  START A PHP SERVER
+//                                                                  
+//  **************************************************************  //
 
-gulp.task('connect', function() {
-    connect.server({
-        root: 'dist',
-        livereload: true
-    });
-});
 
 gulp.task('php', function() {
     php.server({

@@ -19,13 +19,20 @@ $(document).ready(function(){
 
         obj.init = function(){
 
+            // WELL, QUITE OBVOUS WHTA THIS DOES
             MainNavigation.init();
 
+            // KEEPING TRACK OF THE AMOUNT OF VISITS, SO WE CAN ///
             Localstorage.addVisit();
 
+            // REPLACE SVG IMAGES IF NECCESSARY - 
             Utilities.replaceSVG();  
 
+            // REMOVE 300 MS DELAY ON TOUCH DEVICES
             FastClick.attach(document.body);
+
+            // CATCH INTERNAL PAGE-LINKS SO WE USE OUR ROUTER (VENDOR/HISTORY/HISTORY.JS, MODULES/ROUTER.JS)
+            Utilities.captureHistoryLinks();
 
         };
 

@@ -2077,14 +2077,16 @@ Utilities = (function(){
     // FIRE A HISTORY PUSH
     //
 
-    obj.captureHistoryLinks = function(){
+
+    obj.captureHistoryLinks = function(){        
         $('a[data-history="true"]').each(function(e){            
             $(this).on('click',function(e){
                 e.preventDefault();
-                History.pushState({state:1,rand:Math.random()}, "Duo", baseURL + $(this).attr('href'));
+                History.pushState({state:1,rand:Math.random()}, "Duo", $(this).attr('href'));
             });
         });
     };
+
 
     //
     // CHECK TO SEE IF AN OBJECT IS EMPTY
@@ -2584,6 +2586,9 @@ MainNavigation = (function(){
         });
 
         menuContainer.find('li:not(".social")').css('margin-left','400px');
+        menuContainer.find('a').on('click',function(){
+            obj.toggleMenu();
+        });
 
         // RquestAnimationFrame
 
@@ -2684,14 +2689,13 @@ Work = (function(){
 
     obj.init = function(_path){
 
-        console.log('work: ' + _path);
+        TweenLite.to($('#view'),0.5,{opacity:0});        
 
-        $('#view').css('opacity',0);
+        var partialURL = (_path[1] !== undefined) ? '/partials/werk.php' : '/partials/werk/' + _path[1] + '.php';
 
-        PartialsLoader.loadPartial(baseURL + '/partials/werk/jan-koen-lomans.php').done(function(data){
+        PartialsLoader.loadPartial(partialURL).done(function(data){
             $('#view').html(data);
-
-            Utilities.captureHistoryLinks();
+            $('html,body').scrollTop(0);
         });
 
         obj.loadImages();
@@ -2761,7 +2765,7 @@ Work = (function(){
 
         // ADD MANIFEST FOR MULTIPLE IMAGES
 
-        var manifest = [{src:"/dist/images/koen/jankoenlomans-landing.jpg", id:"BG-01"},{src:"/dist/images/koen/JKL_0.jpg", id:"BG-02"},{src:"/dist/images/koen/JKL_0.jpg", id:"BG-03"},{src:"/dist/images/koen/JKL_0.jpg", id:"BG-04"}];
+        var manifest = [{src:"/images/koen/jankoenlomans-landing.jpg", id:"BG-01"},{src:"/images/koen/JKL_0.jpg", id:"BG-02"},{src:"/images/koen/JKL_0.jpg", id:"BG-03"},{src:"/images/koen/JKL_0.jpg", id:"BG-04"}];
 
         // START PRELOAD
 
@@ -2796,9 +2800,90 @@ Home = (function(){
 
     obj.init = function(_userId){
 
-        PartialsLoader.loadPartial('partials/home.html').done(function(data){
+        TweenLite.to($('#view'),0.5,{opacity:0});        
+
+        setTimeout(function(){obj.loadPartial();},500);
+    };
+
+
+    obj.loadPartial = function(){
+        PartialsLoader.loadPartial('/partials/home.php').done(function(data){
+            $('html,body').scrollTop(0);
             $('#view').html(data);
+
         });
+        obj.loadImages();
+    };
+
+    //
+    // HANDLES SINGLE FILE LOAD COMPLETION
+    //
+
+
+    obj.handleFileComplete = function(event){
+        if(event.item.id === 'BG-01'){
+            $('.hero').css('background-image','url(' + event.result.currentSrc + ')');
+        }
+
+        $('#'+event.item.id).css('background-image','url(' + event.result.currentSrc + ')');
+        $('#'+event.item.id).animate({'height':200},200);
+
+    };
+
+
+    //
+    // HANDLES OVERALL PROGRESS (eg ALL IMAGES)
+    //
+
+
+    obj.handleProgress = function(event){
+        SmoothProgressBar.updateProgress(preload.progress);
+    };
+
+
+    //
+    //  HANDLES COMPLETION OF ALL IMAGES
+    //
+
+
+    obj.handleComplete = function(event){
+        SmoothProgressBar.stopProgress();
+        TweenLite.to($('#view'),1,{opacity:1,delay:2});
+    };
+
+
+    //
+    //  HANDLES ERRORS
+    //
+
+
+    obj.handleFileError = function(event){
+        SmoothProgressBar.stopProgress();
+    };
+
+
+
+    obj.loadImages = function() {
+            
+        // ADD LISTENERS
+
+        preload = new createjs.LoadQueue();
+        preload.addEventListener("fileload", obj.handleFileComplete);
+        preload.addEventListener("progress", obj.handleProgress);
+        preload.addEventListener("complete", obj.handleComplete);
+        preload.addEventListener("error", obj.handleFileError);
+
+        // ADD MANIFEST FOR MULTIPLE IMAGES
+
+        var manifest = [{src:"/images/koen/jankoenlomans-landing.jpg", id:"BG-01"},{src:"/images/koen/JKL_0.jpg", id:"BG-02"},{src:"/images/koen/JKL_0.jpg", id:"BG-03"},{src:"/images/koen/JKL_0.jpg", id:"BG-04"}];
+
+        // START PRELOAD
+
+        preload.loadManifest(manifest);
+
+        // START THE PROGRESS BAR
+
+        SmoothProgressBar.startProgress();
     };
 
 
@@ -2818,22 +2903,46 @@ var path;
 console.log('history init', State.data, State.title, State.url);
 
 
+path = State.url.split('/');
+
+path.splice(0,3); // REMOVES HTTP and DOMAINNAME FROM PATH
+
+console.log('path: ' + path.length);
+
+if(path.length === 1){
+    History.pushState({state:1,rand:Math.random()}, "home", '/home');
+}
 
 History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+    
     // Log the State
     var State = History.getState(); // Note: We are using History.getState() instead of event.state
     console.log('history');
     console.log(State.data);
     console.log(State.title);
     console.log(State.url);
-    //History.log('statechange:', State.data, State.title, State.url);
+    console.log('------------------');
 
 
-    path = State.url.split('/').splice(4,5);
+    path = State.url.split('/');
+    
+    path.splice(0,3); // REMOVES HTTP and DOMAINNAME FROM PATH
+    
+    
+    //  *************************************************************** //
+    //                                                                  
+    // INIT OUR MODULES BASED ON OUR ROUTE
+    //                                                                  
+    //  **************************************************************  //    
 
-    if(path[1] === 'werk'){
+    if(path[0] === 'werk'){
         Work.init(path);
     }
+
+    if(path[0] === 'home'){
+        Home.init(path);
+    }
+
 
 });
 
@@ -2864,13 +2973,20 @@ $(document).ready(function(){
 
         obj.init = function(){
 
+            // WELL, QUITE OBVOUS WHTA THIS DOES
             MainNavigation.init();
 
+            // KEEPING TRACK OF THE AMOUNT OF VISITS, SO WE CAN ///
             Localstorage.addVisit();
 
+            // REPLACE SVG IMAGES IF NECCESSARY - 
             Utilities.replaceSVG();  
 
+            // REMOVE 300 MS DELAY ON TOUCH DEVICES
             FastClick.attach(document.body);
+
+            // CATCH INTERNAL PAGE-LINKS SO WE USE OUR ROUTER (VENDOR/HISTORY/HISTORY.JS, MODULES/ROUTER.JS)
+            Utilities.captureHistoryLinks();
 
         };
 
