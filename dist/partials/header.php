@@ -40,6 +40,7 @@
 </head>
 
 <body class="<?php echo $pagetype; ?>">
+    <div id="whiteOverlay" style="position:fixed; width:100%; height: 100%; background:#fff; z-index:10;"></div>
     <a href="/home/" id="logo" data-history="true">
         <div id="brand">
             <img src="/images/studio-deeg-white.svg" alt="Studio Deeg, zo simpel kan het zijn">

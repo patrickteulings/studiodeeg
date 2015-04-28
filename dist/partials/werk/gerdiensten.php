@@ -1,16 +1,16 @@
 <header class="work-detail">
-    <div id="headerImage" data-image="/images/koen/boellaardpenning.jpg"></div>
+    <div id="headerImage" data-image="/images/gerdiensten/hero-gerdiensten.jpg"></div>
     <div class="header-triangle-top-left accel"><img src="/images/header-triangle-top-left.svg" alt=""></div>
-    <div class="header-triangles-top-right accel faded"><img src="/images/ui/header-triangles-top-right-black.svg" alt=""></div>
     <div class="header-triangles-bottom-right accel faded"><img src="/images/header-triangles-black.svg" alt=""></div>
+    <div class="header-triangles-top-right accel faded"><img src="/images/ui/header-triangles-top-right-black.svg" alt=""></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-11 col-lg-offset-1">
+            <div class="col-lg-11 col-lg-offset-1 col-md-offset-2 col-sm-offset-4">
                 <h1>
-                     De kunst van de vergankelijkheid
+                     Gerdiensten
                 </h1>
                 <p>
-                    Een nieuwe website, en per ongeluk een nieuwe huisstijl voor Jan Koen Lomans
+                    Dé keuzecoach
                 </p>
             </div>
         </div>
@@ -30,22 +30,25 @@
     </div>
 </div>
 
-<!-- PORTFOLIO BLOCK -->
 
-<div class="portfolioItem browserImage">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-8 col-md-offset-2">
-                <div class="inner-browser">
-                    <ul class="browserButtons"><li></li><li></li><li></li></ul>
-                    <div class="imageContainer">
-                        <img src="/images/koen/JKL_0.jpg">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- PORTFOLIO BLOCK, IMAGETHUMBS -->
+
+<div class="portfolioThumbs four-columns">
+    <ul>
+        <li style="background-image:url(/images/gerdiensten/gerdiensten-schets-0001.jpg);" data-image="/images/gerdiensten/gerdiensten-schets-01.jpg"></li>
+        <li style="background-image:url(/images/gerdiensten/gerdiensten-schets-02.jpg);" data-image="/images/gerdiensten/gerdiensten-schets-02.jpg"></li>
+        <li style="background-image:url(/images/gerdiensten/gerdiensten-schets-03.jpg);" data-image="/images/gerdiensten/gerdiensten-schets-03.jpg"></li>
+        <li style="background-image:url(/images/gerdiensten/gerdiensten-schets-04.jpg);" data-image="/images/gerdiensten/gerdiensten-schets-04.jpg"></li>
+    </ul>
 </div>
+
+<div class="portfolioThumbs two-columns">
+    <ul>
+        <li style="background-image:url(/images/gerdiensten/gerdiensten-schets-05.jpg);" data-image="/images/gerdiensten/gerdiensten-schets-05.jpg"></li>
+        <li style="background-image:url(/images/gerdiensten/gerdiensten-schets-06.jpg);" data-image="/images/gerdiensten/gerdiensten-schets-06.jpg"></li>
+    </ul>
+</div>
+
 
 <!-- PORTFOLIO BLOCK, IMAGE WITH DESCRIPTION -->
 

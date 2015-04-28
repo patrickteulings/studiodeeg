@@ -23,7 +23,7 @@ Home = (function(){
         PartialsLoader.loadPartial('/partials/home.php').done(function(data){
             $('html,body').scrollTop(0);
             $('#view').html(data);
-
+            Utilities.captureHistoryLinks();
         });
         obj.loadImages();
     };
@@ -62,6 +62,7 @@ Home = (function(){
     obj.handleComplete = function(event){
         SmoothProgressBar.stopProgress();
         TweenLite.to($('#view'),1,{opacity:1,delay:2});
+        if($('#whiteOverlay').length) $('#whiteOverlay').remove();
     };
 
 

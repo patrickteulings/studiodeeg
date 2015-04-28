@@ -5,6 +5,10 @@ var PartialsLoader = (function () {
         return getting;
     }
 
+    $.ajax({url:'http://www.jankoenlomans.com/wp-json/posts'}).done(function(data){
+        console.log(data);
+    });
+
     return {
         loadPartial: loadPartial
     };

@@ -15,14 +15,18 @@ Work = (function(){
 
         TweenLite.to($('#view'),0.5,{opacity:0});        
 
-        var partialURL = (_path[1] !== undefined) ? '/partials/werk.php' : '/partials/werk/' + _path[1] + '.php';
+        var partialURL = (_path[1] === undefined || _path[1] === "") ? '/partials/werk.php' : '/partials/werk/' + _path[1] + '.php';
 
         PartialsLoader.loadPartial(partialURL).done(function(data){
             $('#view').html(data);
             $('html,body').scrollTop(0);
+            Utilities.captureHistoryLinks();
+            obj.loadImages();
+
+
         });
 
-        obj.loadImages();
+        
     };
 
 
@@ -35,12 +39,17 @@ Work = (function(){
 
 
     obj.handleFileComplete = function(event){
-        if(event.item.id === 'BG-01'){
-            $('.hero').css('background-image','url(' + event.result.currentSrc + ')');
+        console.log('handleFileComplete: ' + event);
+        if(event.item.id === 'headerImage'){
+            $('#headerImage').css('background-image','url(' + event.result.currentSrc + ')');
+        }
+        else{
+            $('*[data-image="' + event.item.id + '"]').css('background-image','url(' + event.result.currentSrc + ')');
+            console.log('probeer: ' + event.item.id);
         }
 
-        $('#'+event.item.id).css('background-image','url(' + event.result.currentSrc + ')');
-        $('#'+event.item.id).animate({'height':200},200);
+        //$('#'+event.item.id).css('background-image','url(' + event.result.currentSrc + ')');
+        //$('#'+event.item.id).animate({'height':200},200);
 
     };
 
@@ -63,6 +72,7 @@ Work = (function(){
     obj.handleComplete = function(event){
         SmoothProgressBar.stopProgress();
         TweenLite.to($('#view'),1,{opacity:1,delay:2});
+        if($('#whiteOverlay').length) $('#whiteOverlay').remove();
     };
 
 
@@ -78,7 +88,12 @@ Work = (function(){
 
 
     obj.loadImages = function() {
-            
+        
+
+
+        console.log($('#headerImage').attr('data-image'));
+        console.log($('#headerImage').html());
+
         // ADD LISTENERS
 
         preload = new createjs.LoadQueue();
@@ -89,7 +104,21 @@ Work = (function(){
 
         // ADD MANIFEST FOR MULTIPLE IMAGES
 
-        var manifest = [{src:"/images/koen/jankoenlomans-landing.jpg", id:"BG-01"},{src:"/images/koen/JKL_0.jpg", id:"BG-02"},{src:"/images/koen/JKL_0.jpg", id:"BG-03"},{src:"/images/koen/JKL_0.jpg", id:"BG-04"}];
+        var manifest = [];
+
+        $('*[data-image]').each(function(){
+            var obj = {};
+            obj.src = $(this).attr('data-image');
+            if($(this).attr('id') !== undefined){
+                obj.id = $(this).attr('id');
+            }
+            else{
+                obj.id = obj.src;
+            }
+            manifest.push(obj);
+            console.log('hier: ' + obj.id);
+        });
+        console.log(manifest);
 
         // START PRELOAD
 

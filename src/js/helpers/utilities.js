@@ -43,7 +43,8 @@ Utilities = (function(){
         $('a[data-history="true"]').each(function(e){            
             $(this).on('click',function(e){
                 e.preventDefault();
-                History.pushState({state:1,rand:Math.random()}, "Duo", $(this).attr('href'));
+                var pageTitle = (($(this).attr('title') !== undefined) ? $(this).attr('title') + "- Studio Deeg" : "Studio Deeg"); 
+                History.pushState({state:1,rand:Math.random()}, pageTitle, $(this).attr('href'));
             });
         });
     };

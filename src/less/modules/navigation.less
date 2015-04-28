@@ -181,7 +181,7 @@ nav{
     //
 
     @media only screen and (max-width : @screen-md-max) {
-        background:#fff;
+        //background:#fff;
         padding : 20px;
     }
 
@@ -232,7 +232,7 @@ nav{
         #brandMasked{
             position:absolute;
             bottom: 0; 
-            height: 10px;
+            height: 0px;
             width: 100%;
             overflow-y: hidden;
             
@@ -241,7 +241,7 @@ nav{
                 height: 51px;
                 position: absolute;
                 bottom: 0px;
-                background: url(/images/studio-deeg-pink.svg);
+                background: url(/images/studio-deeg-pink.svg) no-repeat;
             }
 
             img{
@@ -418,11 +418,12 @@ body.work{
 
 
 body.default{        
-            
-    #brand{
-        #brandMasked{
-            #logoMasked {    
-                background: url(/images/studio-deeg-green.svg);
+    #logo{        
+        #brand{
+            #brandMasked{
+                #logoMasked {    
+                    background: url(/images/studio-deeg-green.svg);
+                }
             }
         }
     }
@@ -447,7 +448,7 @@ body.default{
 //                                                                  
 //  **************************************************************  //    
 
-@media only screen and (min-width : @screen-md-min) {
+@media only screen and (min-width : @screen-sm-min) {
     #logoBackground{
         display:none;
     }

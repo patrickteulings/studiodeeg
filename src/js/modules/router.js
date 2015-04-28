@@ -14,6 +14,8 @@ path.splice(0,3); // REMOVES HTTP and DOMAINNAME FROM PATH
 
 console.log('path: ' + path.length);
 
+buildPage();
+
 if(path.length === 1){
     History.pushState({state:1,rand:Math.random()}, "home", '/home');
 }
@@ -33,13 +35,19 @@ History.Adapter.bind(window,'statechange',function(){ // Note: We are using stat
     
     path.splice(0,3); // REMOVES HTTP and DOMAINNAME FROM PATH
     
-    
+    buildPage();
     //  *************************************************************** //
     //                                                                  
     // INIT OUR MODULES BASED ON OUR ROUTE
     //                                                                  
     //  **************************************************************  //    
 
+
+
+
+});
+
+function buildPage(){
     if(path[0] === 'werk'){
         Work.init(path);
     }
@@ -47,9 +55,7 @@ History.Adapter.bind(window,'statechange',function(){ // Note: We are using stat
     if(path[0] === 'home'){
         Home.init(path);
     }
-
-
-});
+}
 
 
 

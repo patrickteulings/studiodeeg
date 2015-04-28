@@ -9,6 +9,8 @@ var notify      = require("gulp-notify");
 var uglify      = require('gulp-uglify');
 var rename      = require("gulp-rename");
 var minifyCSS   = require("gulp-minify-css");
+var gutil       = require("gulp-util");
+var plumber     = require('gulp-plumber');
 
 var paths = {
     less:'./src/less/**/*.less',
@@ -110,7 +112,11 @@ gulp.task('uglify', function() {
  
 gulp.task('less', function () {
   return gulp.src('./src/less/app.less')
-    .pipe(less())
+    .pipe(plumber())    
+    .pipe(less().on('error', function(err) {        
+        gutil.log(err);
+        this.emit('end');
+    })).on('error',notify.onError({ message: 'LESS Fail'}))    
     .pipe(gulp.dest('./dist/css'));
 });
 

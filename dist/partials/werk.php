@@ -31,7 +31,7 @@
 <div class="portfolioThumbs three-columns">
     <ul>
         <li style="background-image:url(/images/gerdiensten/thumb-gerdiensten-home.jpg); background-size: cover; background-repeat:no-repeat;" data-image="/images/gerdiensten/thumb-gerdiensten-home.jpg">
-            <a href="/werk/gerdiensten/" data-history="true">
+            <a href="/werk/gerdiensten/" data-history="true" title="Gerdiensten">
                 <div class="overlay"></div>
                 <div class="info">
                     <h3>Gerdiensten</h3>
@@ -41,7 +41,7 @@
             </a>
         </li>
         <li style="background-image:url(/images/koen/thumb-jankoenlomans-home.jpg); background-size: cover; background-repeat:no-repeat;" data-image="/images/koen/thumb-jankoenlomans-home.jpg">
-            <a href="/werk/jankoenlomans/" data-history="true">
+            <a href="/werk/jan-koen-lomans/" data-history="true" title="Jan Koen Lomans">
                 <div class="overlay"></div>
                 <div class="info">
                     <h3>Jan Koen Lomans</h3>
@@ -50,17 +50,16 @@
                 </div>
             </a>
         </li>
-        <li class="thumb-tile more">
-            <a href="/werk/" data-history="true">
+        <li style="background-image:url(/images/tngs/tngs-thumb.jpg); background-size: cover; background-repeat:no-repeat;" data-image="/images/tngs/tngs-thumb.png">
+            <a href="/werk/tngs/" data-history="true" title="TNGS">
                 <div class="overlay"></div>
                 <div class="info">
-                    <h3></h3>
+                    <h3>TNGS</h3>
                     <span class="divider"></span>
-                    <p class="thumbSubtitle">Meer werk</p>
+                    <p class="thumbSubtitle">Identiteit en website</p>
                 </div>
             </a>
         </li>
-
     </ul>
 </div>
 <div class="portfolioThumbs two-columns">
