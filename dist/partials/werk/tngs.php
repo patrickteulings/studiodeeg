@@ -67,6 +67,27 @@
     </div>
 </div>
 
+<div class="intro defaultTextBlock lightBlueBackground">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <h2 class="uppercase pink">Identiteit</h2>
+                <p>Een aantal iteraties van het logo. Allemaal met een 'royal' tintje. en een Scandinavisch gevoel. 
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolioThumbs four-columns">
+    <ul>
+        <li style="background-image:url(/images/tngs/gerdiensten-schets-0001.jpg);" data-image="/images/tngs/logo-01.jpg"></li>
+        <li style="background-image:url(/images/tngs/gerdiensten-schets-02.jpg);" data-image="/images/tngs/logo-02.jpg"></li>
+        <li style="background-image:url(/images/tngs/gerdiensten-schets-03.jpg);" data-image="/images/tngs/logo-03.jpg"></li>
+        <li style="background-image:url(/images/tngs/gerdiensten-schets-04.jpg);" data-image="/images/tngs/logo-04.jpg"></li>
+    </ul>
+</div>
+
 <div id="readMoreSection">    
     <div class="container-fluid">
         <div class="row readMoreButtons">

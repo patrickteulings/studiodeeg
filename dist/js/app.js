@@ -2178,7 +2178,10 @@ var PartialsLoader = (function () {
         return getting;
     }
 
-    $.ajax({url:'http://www.jankoenlomans.com/wp-json/posts'}).done(function(data){
+    var arg = {};
+    arg.filter = {'category_name':'work'};
+
+    $.ajax({url:'http://www.jankoenlomans.com/wp-json/posts',data:arg}).done(function(data)  {
         console.log(data);
     });
 
@@ -2707,6 +2710,8 @@ Work = (function(){
 
         });
 
+        $('body').removeClass().addClass('work');
+
         
     };
 
@@ -2720,13 +2725,12 @@ Work = (function(){
 
 
     obj.handleFileComplete = function(event){
-        console.log('handleFileComplete: ' + event);
+        
         if(event.item.id === 'headerImage'){
             $('#headerImage').css('background-image','url(' + event.result.currentSrc + ')');
         }
         else{
-            $('*[data-image="' + event.item.id + '"]').css('background-image','url(' + event.result.currentSrc + ')');
-            console.log('probeer: ' + event.item.id);
+            $('*[data-image="' + event.item.id + '"]').css('background-image','url(' + event.result.currentSrc + ')');            
         }
 
         //$('#'+event.item.id).css('background-image','url(' + event.result.currentSrc + ')');
@@ -2797,9 +2801,9 @@ Work = (function(){
                 obj.id = obj.src;
             }
             manifest.push(obj);
-            console.log('hier: ' + obj.id);
+        
         });
-        console.log(manifest);
+        
 
         // START PRELOAD
 
@@ -2844,6 +2848,7 @@ Home = (function(){
         PartialsLoader.loadPartial('/partials/home.php').done(function(data){
             $('html,body').scrollTop(0);
             $('#view').html(data);
+            $('body').removeClass().addClass('default');
             Utilities.captureHistoryLinks();
         });
         obj.loadImages();
@@ -2880,7 +2885,7 @@ Home = (function(){
     //
 
 
-    obj.handleComplete = function(event){
+    obj.handleComplete = function(event){        
         SmoothProgressBar.stopProgress();
         TweenLite.to($('#view'),1,{opacity:1,delay:2});
         if($('#whiteOverlay').length) $('#whiteOverlay').remove();
@@ -2947,7 +2952,8 @@ console.log('path: ' + path.length);
 buildPage();
 
 if(path.length === 1){
-    History.pushState({state:1,rand:Math.random()}, "home", '/home');
+    window.location.replace('/home/');
+    //History.pushState({state:1,rand:Math.random()}, "home", '/home');    
 }
 
 History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
@@ -2983,7 +2989,7 @@ function buildPage(){
     }
 
     if(path[0] === 'home'){
-        Home.init(path);
+        Home.init(path);        
     }
 }
 

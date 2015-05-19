@@ -50,5 +50,38 @@ footer{
             }
         }
     }
+}
+
+//  *************************************************************** //
+//                                                                  
+//  RESPONSIVENESS
+//                                                                  
+//  **************************************************************  //
+
+@media (max-width: @screen-sm-max) {
+    footer{
+        .address{
+            float:none;
+            margin-bottom: 40px;
+        }
+
+        .pull-right{
+            float:none !important;
+            margin-bottom: 40px;
+        }
+
+        .socials{
+            &:after{
+                content:"";
+                width:100%;
+                display: table;
+                clear: both;
+            }
+        }
+
+        .copyright{
+            margin-bottom: 80px;
+        }
+    }
 
 }

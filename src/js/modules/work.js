@@ -26,6 +26,8 @@ Work = (function(){
 
         });
 
+        $('body').removeClass().addClass('work');
+
         
     };
 
@@ -39,13 +41,12 @@ Work = (function(){
 
 
     obj.handleFileComplete = function(event){
-        console.log('handleFileComplete: ' + event);
+        
         if(event.item.id === 'headerImage'){
             $('#headerImage').css('background-image','url(' + event.result.currentSrc + ')');
         }
         else{
-            $('*[data-image="' + event.item.id + '"]').css('background-image','url(' + event.result.currentSrc + ')');
-            console.log('probeer: ' + event.item.id);
+            $('*[data-image="' + event.item.id + '"]').css('background-image','url(' + event.result.currentSrc + ')');            
         }
 
         //$('#'+event.item.id).css('background-image','url(' + event.result.currentSrc + ')');
@@ -116,9 +117,9 @@ Work = (function(){
                 obj.id = obj.src;
             }
             manifest.push(obj);
-            console.log('hier: ' + obj.id);
+        
         });
-        console.log(manifest);
+        
 
         // START PRELOAD
 

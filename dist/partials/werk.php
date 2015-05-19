@@ -1,6 +1,6 @@
 <header class="work-overview">
     <div class="header-triangle-top-left accel"><img src="/images/header-triangle-top-left.svg" alt=""></div>
-    <div class="header-triangles-bottom-right accel"><img src="/images/header-triangles-green.svg" alt=""></div>
+    <div class="header-triangles-bottom-right accel"><img src="/images/header-triangles-black.svg" alt=""></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-1">

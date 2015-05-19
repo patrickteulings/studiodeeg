@@ -5,7 +5,10 @@ var PartialsLoader = (function () {
         return getting;
     }
 
-    $.ajax({url:'http://www.jankoenlomans.com/wp-json/posts'}).done(function(data){
+    var arg = {};
+    arg.filter = {'category_name':'work'};
+
+    $.ajax({url:'http://www.jankoenlomans.com/wp-json/posts',data:arg}).done(function(data)  {
         console.log(data);
     });
 

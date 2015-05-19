@@ -17,7 +17,8 @@ console.log('path: ' + path.length);
 buildPage();
 
 if(path.length === 1){
-    History.pushState({state:1,rand:Math.random()}, "home", '/home');
+    window.location.replace('/home/');
+    //History.pushState({state:1,rand:Math.random()}, "home", '/home');    
 }
 
 History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
@@ -53,7 +54,7 @@ function buildPage(){
     }
 
     if(path[0] === 'home'){
-        Home.init(path);
+        Home.init(path);        
     }
 }
 

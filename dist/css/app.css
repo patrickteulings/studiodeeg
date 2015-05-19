@@ -8031,6 +8031,9 @@ button.close {
   width: 100%;
   height: 100%;
 }
+.lightBlueBackground {
+  background-color: #eaf5f8;
+}
 .topMargin-80 {
   margin-top: 80px;
 }
@@ -8128,6 +8131,11 @@ header.work-overview .header-triangle-top-left {
 .defaultTextBlock {
   padding: 100px 0;
 }
+@media (max-width: 992px) {
+  .header-triangle-top-left {
+    display: none;
+  }
+}
 #readMoreSection {
   padding: 100px 0 120px;
   background: #F5F7F7;
@@ -8170,6 +8178,14 @@ header.work-overview .header-triangle-top-left {
   position: absolute;
   top: 0;
   left: 0;
+}
+@media (max-width: 991px) {
+  header {
+    height: 660px;
+  }
+  header h1 {
+    margin-top: 240px;
+  }
 }
 body,
 html {
@@ -8214,13 +8230,22 @@ p {
 }
 @media (max-width: 992px) {
   h1 {
-    font-size: 36px;
+    font-size: 2rem;
   }
   h2 {
-    font-size: 22px;
+    font-size: 2.1rem;
   }
   h3 {
     font-size: 18px;
+  }
+  .intro h2 {
+    font-size: 2rem;
+  }
+  #howSection h2 {
+    font-size: 2rem;
+  }
+  #readMoreSection h3 {
+    line-height: 40px;
   }
 }
 .btn {
@@ -8268,6 +8293,20 @@ p {
   background-image: url('/images/ui/button-triangle-blue-one.svg');
   background-repeat: no-repeat;
   background-position: top right;
+}
+@media (max-width: 991px) {
+  .btn.right {
+    float: none;
+  }
+  .btn.left {
+    float: none;
+  }
+  .readMoreButtons .col-md-4 {
+    text-align: center;
+  }
+  .readMoreButtons .btn {
+    margin-bottom: 40px;
+  }
 }
 #progress {
   position: fixed;
@@ -8323,6 +8362,25 @@ footer ul.socials li a:hover i {
 footer ul.socials li:first-child:after {
   width: 0;
   bottom: 0;
+}
+@media (max-width: 991px) {
+  footer .address {
+    float: none;
+    margin-bottom: 40px;
+  }
+  footer .pull-right {
+    float: none !important;
+    margin-bottom: 40px;
+  }
+  footer .socials:after {
+    content: "";
+    width: 100%;
+    display: table;
+    clear: both;
+  }
+  footer .copyright {
+    margin-bottom: 80px;
+  }
 }
 nav {
   position: fixed;
@@ -8484,6 +8542,9 @@ nav #navigationItems.open .triangles {
   nav {
     padding: 20px;
   }
+  nav #navigationItems ul {
+    margin-top: 100px;
+  }
 }
 #logoBackground {
   width: 100%;
@@ -8620,7 +8681,8 @@ nav #navigationItems.open .triangles {
   border-top-left-radius: 0px;
 }
 #menuToggle.open {
-  margin-right: 340px;
+  margin-right: 135px;
+  z-index: 200;
 }
 #menuToggle.open span.lt {
   -webkit-transform: rotate(45deg);
@@ -8661,7 +8723,13 @@ nav #navigationItems.open .triangles {
 #menuToggle.open span.middle {
   opacity: 0;
 }
-body.work #brand #brandMasked #logoMasked {
+body.work header {
+  background: #8ac6d9;
+}
+body.work header .header-triangles-bottom-right {
+  opacity: 0.2;
+}
+body.work #logo #brand #brandMasked #logoMasked {
   background: url(/images/studio-deeg-blue.svg);
 }
 body.work #menuToggle #maskedToggle .inner span {
@@ -8672,6 +8740,12 @@ body.default #logo #brand #brandMasked #logoMasked {
 }
 body.default #menuToggle #maskedToggle .inner span {
   background: #86ccc6;
+}
+body.default header {
+  background: #86ccc6;
+}
+body.default header .header-triangles-bottom-right {
+  opacity: 1;
 }
 @media only screen and (min-width: 768px) {
   #logoBackground {
@@ -8707,6 +8781,9 @@ body.default #menuToggle #maskedToggle .inner span {
   }
   #menuToggle:hover span.rb {
     bottom: 5px;
+  }
+  #menuToggle.open {
+    margin-right: 340px;
   }
   #menuToggle.open:hover span.lt {
     top: 3px;
@@ -8895,10 +8972,64 @@ body.default #menuToggle #maskedToggle .inner span {
   bottom: 0px;
 }
 @media (max-width: 991px) {
+  .portfolioThumbs:after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+  }
   .portfolioThumbs ul {
+    height: auto;
+  }
+  .portfolioThumbs ul li {
     height: 300px;
   }
-  .portfolioThumbs.three li {
+  .portfolioThumbs ul li:last-child:after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+  }
+  .portfolioThumbs ul li a .overlay {
+    opacity: 1;
+  }
+  .portfolioThumbs ul li a .info h3 {
+    margin-bottom: 20px;
+    opacity: 1;
+  }
+  .portfolioThumbs ul li a .info p {
+    margin-top: 20px;
+    opacity: 1;
+  }
+  .portfolioThumbs ul li a .info .divider {
+    width: 80px;
+  }
+  .portfolioThumbs.three-columns li {
+    width: 100%;
+  }
+  .portfolioThumbs.two-columns li {
+    width: 100%;
+  }
+  .portfolioThumbs.four-columns li {
+    width: 50%;
+  }
+  .portfolioItem.imageWithDescription .imageContainer img {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .portfolioThumbs ul {
+    height: auto;
+  }
+  .portfolioThumbs.two-columns li {
+    width: 100%;
+    float: none;
+  }
+  .portfolioThumbs.three-columns li {
+    width: 100%;
+    float: none;
+  }
+  .portfolioThumbs.four-columns li {
     width: 100%;
   }
 }

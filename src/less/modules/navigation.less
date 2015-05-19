@@ -183,7 +183,16 @@ nav{
     @media only screen and (max-width : @screen-md-max) {
         //background:#fff;
         padding : 20px;
+    
+        #navigationItems{
+            ul{
+                margin-top: 100px;
+            }
+        }
+
     }
+
+
 
 }
 
@@ -348,7 +357,8 @@ nav{
 
     &.open{
 
-        margin-right: 340px;
+        margin-right: 135px;
+        z-index:200;
 
         span{
             &.lt{
@@ -394,11 +404,20 @@ nav{
 
 body.work{    
     
-                
-    #brand{
-        #brandMasked{
-            #logoMasked {    
-                background: url(/images/studio-deeg-blue.svg);
+    header{
+        background:@blueLight;
+
+        .header-triangles-bottom-right{
+            opacity: 0.2;
+        }
+    }
+
+    #logo{            
+        #brand{
+            #brandMasked{
+                #logoMasked {    
+                    background: url(/images/studio-deeg-blue.svg);
+                }
             }
         }
     }
@@ -439,6 +458,14 @@ body.default{
             }
         }
     }
+    header{
+        background:@greenLight;
+
+        .header-triangles-bottom-right{
+            opacity: 1;
+        }
+    }
+
 }
 
 
@@ -492,6 +519,7 @@ body.default{
         }
 
         &.open{
+            margin-right: 340px;
             &:hover{
              span{
                 &.lt{

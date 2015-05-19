@@ -72,7 +72,7 @@
                 
             </div>
             <div class="col-md-4" style="text-align:center;">
-                <a class="btn blue triangles one center">BEKIJK MEER WERK</a>
+                <a href="/werk/" class="btn blue triangles one center" data-history="true">BEKIJK MEER WERK</a>
             </div>
             <div class="col-md-4">                
             </div>
